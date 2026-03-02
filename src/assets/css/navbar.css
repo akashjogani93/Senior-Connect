@@ -1,0 +1,13 @@
+.navbar {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.nav-link {
+  font-weight: 500;
+  color: #495057 !important;
+  padding: 8px 16px !important;
+}
+
+.nav-link:hover {
+  color: #0d6efd !important;
+}

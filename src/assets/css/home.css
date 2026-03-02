@@ -1,0 +1,264 @@
+.hero-section {
+  background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+  /* padding: 100px 0 140px; */
+}
+
+.hero-section .form-control {
+  border: 2px solid #0d6efd; /* Bootstrap primary blue */
+}
+
+.hero-section .form-control:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+.hero-section .input-group-text {
+  border: 2px solid #0d6efd;
+  border-right: none;
+  background-color: #fff;
+}
+
+.hero-image {
+  border-radius: 24px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.18);
+}
+
+.trust-badge {
+  background: white;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.how-step {
+  text-align: center;
+}
+
+.how-step .icon {
+  width: 85px;
+  height: 85px;
+  background: #e7f1ff;
+  color: #0d6efd;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+  margin: 0 auto 20px;
+}
+
+
+/* top Banner */
+.banner-section {
+  padding: 0;
+}
+
+.top-image-banner {
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-img {
+  width: 100%;
+  /* height: 600px; */
+  object-fit: cover;
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.banner-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  max-width: 700px;
+  padding: 0 20px;
+}
+
+.banner-content h1 {
+  font-size: 2.8rem;
+}
+
+.banner-content p {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .banner-img {
+    height: 250px;
+  }
+
+  .banner-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .banner-content p {
+    font-size: 1rem;
+  }
+}
+
+/* service card */
+.core-Section
+{
+  background-color: #f0f7ff;
+  padding-bottom: 50px;
+}
+.service-card {
+  background-color: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+
+/* emergency */
+.emergency
+{
+  padding: 50px;
+}
+.emergency-box {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+
+
+/* how it works */
+/* Cards */
+
+.how-section
+{
+  padding:40px;
+}
+.how-card {
+  background: #ffffff;
+  padding: 35px 20px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0px 4px 20px rgba(0,0,0,0.1);
+  transition: all 0.4s ease;
+  cursor: pointer;
+  min-height: 300px;
+}
+
+.how-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0px 8px 30px rgba(0,0,0,0.15);
+}
+
+/* Icon inside circle */
+.step-icon {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  margin: 0 auto 15px;
+  transition: 0.3s;
+}
+
+.how-card:hover .step-icon {
+  background: #e8e8e8;
+}
+
+/* Typography */
+.how-card h3 {
+  font-size: 45px;
+  font-weight: 700;
+  color: #007bff;
+  opacity: 0.8;
+}
+
+.how-card h4 {
+  font-weight: 600;
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+.how-card p {
+  color: #666;
+  font-size: 15px;
+  padding: 0 10px;
+}
+
+/* Animations */
+.animate-fade {
+  animation: fadeIn 1.5s ease forwards;
+}
+
+.animate-up {
+  opacity: 0;
+  animation: fadeUp 1.2s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/*  */
+/* About Section */
+.about-section {
+  background: #f9fbfd;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.about-content h2 {
+  font-size: 36px;
+}
+
+.about-content p {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* Animation */
+.animate-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideLeft 1s ease forwards;
+}
+
+.animate-right {
+  opacity: 0;
+  transform: translateX(50px);
+  animation: slideRight 1s ease forwards;
+}
+
+@keyframes slideLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

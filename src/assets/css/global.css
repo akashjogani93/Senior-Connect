@@ -1,0 +1,36 @@
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.btn-primary-custom {
+  background-color: #0d6efd;
+  color: white;
+  border-radius: 50px;
+  padding: 12px 32px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-primary-custom:hover {
+  background-color: #0b5ed7;
+  transform: translateY(-2px);
+}
+
+.service-card {
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+  transition: all 0.4s;
+  overflow: hidden;
+}
+
+.service-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.emergency-box {
+  border-radius: 20px;
+  background: white;
+  border-left: 8px solid #dc3545;
+}

@@ -1,0 +1,144 @@
+/* CONTACT HERO SECTION */
+.contact-hero {
+  height: 70vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 100px 20px;
+}
+
+/* Animations */
+.animate-fade {
+  opacity: 0;
+  animation: fadeIn 1.3s ease forwards;
+}
+
+.animate-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* CONTACT INFO SECTION */
+.contact-info {
+  background: #ffffff;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.info-card {
+  background: #f8fbff;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+  transition: 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+}
+
+.info-icon {
+  font-size: 40px;
+  background: #eef2f6;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Animations */
+.animate-up {
+  opacity: 0;
+  animation: fadeUp 1.3s ease forwards;
+}
+
+/* CONTACT FORM SECTION */
+.contact-form-section {
+  background: #f8fbff;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.form-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.form-control {
+  border-radius: 8px;
+  padding: 10px 15px;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #007bff;
+}
+
+/* MAP SECTION */
+.map-section {
+  padding-bottom: 0;
+}
+
+.map-container {
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  border-top: 4px solid #007bff;
+  border-bottom: 4px solid #007bff;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* ============================
+   CONTACT CTA SECTION
+============================ */
+.contact-cta-section {
+  background: linear-gradient(135deg, #007bff, #0056d2);
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.cta-btn {
+  border-radius: 8px;
+  transition: 0.3s ease;
+}
+
+.cta-btn:hover {
+  transform: scale(1.05);
+  background: #ffffff;
+  color: #0056d2 !important;
+}
+
+.cta-btn-outline {
+  border-radius: 8px;
+  transition: 0.3s ease;
+}
+
+.cta-btn-outline:hover {
+  transform: scale(1.05);
+  background: white;
+  color: #0056d2 !important;
+}
