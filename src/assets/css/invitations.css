@@ -1,0 +1,167 @@
+/* PAGE */
+
+.invitation-page{
+background:#F7F4F1;
+padding-bottom:80px;
+font-family: "Inter", sans-serif;
+}
+
+.container{
+max-width:1180px;
+margin:auto;
+padding:0 20px;
+}
+
+/* HERO */
+
+.hero{
+padding:60px 0 25px;
+}
+
+.hero h1{
+font-size:42px;
+font-weight:700;
+color:#1F2937;
+}
+
+.hero p{
+margin-top:12px;
+color:#6B7280;
+max-width:600px;
+line-height:1.6;
+font-size:16px;
+}
+
+/* SEARCH BOX */
+
+.search-box{
+background:#FFFFFF;
+border:1px solid #E6DED6;
+padding:24px;
+border-radius:14px;
+margin-top:25px;
+display:grid;
+grid-template-columns:1fr 1fr auto;
+gap:18px;
+}
+
+/* INPUT */
+
+.search-field{
+display:flex;
+flex-direction:column;
+gap:6px;
+}
+
+.search-field label{
+font-size:14px;
+font-weight:600;
+color:#374151;
+}
+
+.search-field input{
+height:46px;
+border:1px solid #E6DED6;
+border-radius:10px;
+padding:0 14px;
+background:#FAF7F4;
+font-size:14px;
+}
+
+/* FIND BUTTON */
+
+.find-btn{
+background:#1F2937;
+color:white;
+border:none;
+padding:0 26px;
+border-radius:10px;
+font-weight:600;
+cursor:pointer;
+}
+
+/* CATEGORY FILTERS */
+
+.category-row{
+grid-column:span 3;
+display:flex;
+gap:12px;
+margin-top:8px;
+flex-wrap:wrap;
+}
+
+.cat{
+padding:9px 16px;
+border:1px solid #E6DED6;
+border-radius:25px;
+background:white;
+font-size:14px;
+cursor:pointer;
+color:#374151;
+}
+
+.cat.active{
+background:#F5E6D6;
+color:#E68A2E;
+border:none;
+font-weight:600;
+}
+
+/* GRID */
+
+.event-grid{
+margin-top:35px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:28px;
+}
+
+/* CARD */
+
+.event-card{
+background:#FFFFFF;
+border:1px solid #E6DED6;
+padding:24px;
+border-radius:16px;
+}
+
+/* TAG */
+
+.event-tag{
+background:#EEF2F7;
+padding:6px 12px;
+border-radius:8px;
+font-size:12px;
+color:#374151;
+}
+
+/* TITLE */
+
+.event-card h3{
+margin-top:14px;
+font-size:20px;
+font-weight:700;
+color:#1F2937;
+}
+
+/* DESCRIPTION */
+
+.event-desc{
+margin-top:10px;
+color:#6B7280;
+line-height:1.6;
+font-size:14px;
+}
+
+/* EVENT INFO */
+
+.event-info{
+margin-top:16px;
+padding-top:12px;
+border-top:1px solid #E6DED6;
+display:flex;
+flex-direction:column;
+gap:8px;
+font-size:14px;
+color:#374151;
+}

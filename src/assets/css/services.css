@@ -1,0 +1,248 @@
+/* PAGE BACKGROUND */
+
+.services-page{
+background:#f6f8fb;
+padding-bottom:80px;
+font-family: 'Inter', sans-serif;
+}
+
+/* CONTAINER */
+
+.container{
+max-width:1180px;
+margin:auto;
+padding:0 20px;
+}
+
+/* HERO SECTION */
+
+.service-hero{
+background:#dfeaf6;
+padding:70px 0;
+}
+
+.service-hero h1{
+font-size:42px;
+font-weight:700;
+color:#1f2937;
+margin-bottom:12px;
+}
+
+.service-hero p{
+color:#6b7280;
+font-size:16px;
+max-width:500px;
+line-height:1.6;
+}
+
+/* SEARCH BOX */
+
+.service-search-box{
+display:flex;
+gap:20px;
+background:white;
+padding:25px;
+border-radius:14px;
+box-shadow:0 12px 35px rgba(0,0,0,0.08);
+margin-top:-50px;
+align-items:flex-end;
+}
+
+/* INPUT GROUP */
+
+.search-field{
+flex:1;
+display:flex;
+flex-direction:column;
+gap:6px;
+}
+
+.search-field label{
+font-size:14px;
+font-weight:600;
+color:#374151;
+}
+
+/* INPUT */
+
+.search-field input,
+.search-field select{
+height:48px;
+border:1px solid #e5e7eb;
+border-radius:10px;
+padding:0 14px;
+font-size:15px;
+background:#f9fafb;
+outline:none;
+}
+
+.search-field input:focus,
+.search-field select:focus{
+border-color:#3b82f6;
+background:white;
+}
+
+/* SEARCH BUTTON */
+
+.search-btn{
+background:#2563eb;
+color:white;
+border:none;
+height:48px;
+padding:0 30px;
+border-radius:10px;
+font-weight:600;
+font-size:15px;
+cursor:pointer;
+transition:0.2s;
+}
+
+.search-btn:hover{
+background:#1d4ed8;
+}
+
+/* RESULT HEADER */
+
+.result-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin:40px 0 20px;
+}
+
+.result-header h3{
+font-size:20px;
+font-weight:600;
+color:#111827;
+}
+
+.result-header span{
+color:#3b82f6;
+font-weight:500;
+cursor:pointer;
+}
+
+/* SERVICE GRID */
+
+.service-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:28px;
+}
+
+/* CARD */
+
+.service-card{
+background:white;
+padding:26px;
+border-radius:16px;
+box-shadow:0 8px 24px rgba(0,0,0,0.08);
+transition:0.2s;
+}
+
+.service-card:hover{
+transform:translateY(-4px);
+box-shadow:0 15px 40px rgba(0,0,0,0.12);
+}
+
+/* CARD HEADER */
+
+.card-top{
+display:flex;
+justify-content:space-between;
+margin-bottom:12px;
+}
+
+/* CATEGORY BADGE */
+
+.category{
+background:#e8f1ff;
+color:#2563eb;
+padding:6px 10px;
+font-size:12px;
+border-radius:8px;
+font-weight:600;
+}
+
+/* STATUS BADGE */
+
+.status{
+background:#dcfce7;
+color:#16a34a;
+padding:6px 12px;
+font-size:12px;
+border-radius:20px;
+font-weight:600;
+}
+
+/* CARD TITLE */
+
+.service-card h2{
+font-size:22px;
+font-weight:700;
+color:#111827;
+margin-bottom:10px;
+}
+
+/* ADDRESS */
+
+.address{
+color:#6b7280;
+font-size:15px;
+margin-bottom:6px;
+}
+
+/* PHONE */
+
+.phone{
+color:#374151;
+font-size:15px;
+}
+
+/* BUTTON GROUP */
+
+.card-buttons{
+display:flex;
+gap:12px;
+margin-top:22px;
+}
+
+/* BUTTON */
+
+.btn{
+flex:1;
+height:42px;
+border:none;
+border-radius:10px;
+font-weight:600;
+font-size:14px;
+cursor:pointer;
+color:white;
+transition:0.2s;
+}
+
+/* COLORS */
+
+.blue{
+background:#3b82f6;
+}
+
+.blue:hover{
+background:#2563eb;
+}
+
+.green{
+background:#22c55e;
+}
+
+.green:hover{
+background:#16a34a;
+}
+
+.orange{
+background:#f97316;
+}
+
+.orange:hover{
+background:#ea580c;
+}

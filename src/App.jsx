@@ -11,9 +11,8 @@ import About from './Pages/Public/About';
 import Contact from './Pages/Public/Contact';
 import Login from './Pages/Public/Login';
 import Register from './Pages/Public/Register';
-// (Import other pages as you create them)
-// import Services from './Pages/Public/Services';
-// import Invitations from './Pages/Public/Invitations';
+import Services from './Pages/Public/Services';
+import Invitations from './Pages/Public/Invitations';
 
 function App() {
     return (
@@ -30,10 +29,8 @@ function App() {
                         <Route path="/Contact" element={<Contact />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
-                        {/* 
-            <Route path="/services" element={<Services />} />
-            <Route path="/invitations" element={<Invitations />} />
-            */}
+                        <Route path="/Services" element={<Services />} />
+                        <Route path="/Invitations" element={<Invitations />} />
                     </Routes>
                 </main>
 
