@@ -63,13 +63,13 @@ export default function LoginPage() {
             // ------------------ Redirect ------------------
             const role = res?.user?.role;
 
-            // setTimeout(() => {
-            //     if (role === "provider") {
-            //         navigate("/provider/dashboard");
-            //     } else {
-            //         navigate("/senior/dashboard");
-            //     }
-            // }, 1000);
+            setTimeout(() => {
+                if (role === "provider") {
+                    navigate("/provider/dashboard");
+                } else {
+                    navigate("/senior/dashboard");
+                }
+            }, 1000);
 
         } catch (err) {
             console.error("Login Error:", err); // Debugging log

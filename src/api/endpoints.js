@@ -10,6 +10,7 @@ export const API = {
     INVITATION: {
         LIST: "/invitation/list",
         ADD_UPDATE: "/invitation/add-update",
+        DELETE: "/invitation/delete"
     },
 
     SERVICE: {

@@ -1,0 +1,153 @@
+.dashboard-page {
+  background: #f4f7fb;
+  min-height: 100vh;
+}
+.dashboard-bg {
+  background: #f4f7fb;
+  min-height: 100vh;
+  padding-top: 90px; /* navbar space */
+  padding-bottom: 20px;
+  border-radius: 12px; /* optional (premium look) */
+}
+
+.dashboard-container {
+  padding: 90px 20px 20px;
+  /* background: #f4f7fb; */
+  min-height: 100vh;
+}
+
+/* Header */
+.dashboard-header {
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+/* Stats */
+.dashboard-stats {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.stat-card {
+  flex: 1;
+  min-width: 150px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.icon {
+  font-size: 26px;
+}
+
+/* Section */
+.dashboard-section {
+  margin-bottom: 25px;
+}
+
+/* Table */
+.table-card {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  overflow-x: auto;
+}
+
+.dashboard-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.dashboard-table th {
+  text-align: left;
+  padding: 10px;
+  color: #555;
+  font-size: 14px;
+}
+
+.dashboard-table td {
+  padding: 12px 10px;
+  border-top: 1px solid #eee;
+  font-size: 14px;
+}
+
+/* Status */
+.status {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status.completed {
+  background: #d4edda;
+  color: #155724;
+}
+
+/* Chat */
+.chat-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #eaf4ff;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.btn-chat {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Services Redirect */
+.service-redirect {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+.redirect-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.btn-service {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-service:hover {
+  background: #0056b3;
+}
