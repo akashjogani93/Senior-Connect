@@ -1,0 +1,112 @@
+.profile-page {
+  background: linear-gradient(135deg, #eef2f7, #f8fbff);
+  min-height: 100vh;
+}
+
+.profile-container {
+  padding-top: 90px;
+}
+
+/* Card */
+.profile-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  max-width: 650px;
+  margin: auto;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.profile-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Header */
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.profile-header h3 {
+  font-weight: 600;
+}
+
+.profile-header button {
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  color: white;
+  border: none;
+  padding: 7px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Form */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.form-group label {
+  font-weight: 500;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+/* Actions */
+.profile-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.profile-actions button {
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: none;
+}
+
+.profile-actions button:first-child {
+  background: #28a745;
+  color: white;
+}
+
+.profile-actions .cancel {
+  background: #dc3545;
+  color: white;
+}
+
+/* Disabled */
+input:disabled,
+textarea:disabled {
+  background: #f9f9f9;
+}
+
+
+.error-input {
+  border: 1px solid red !important;
+}
+
+.error-text {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+}

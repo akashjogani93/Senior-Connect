@@ -61,14 +61,15 @@ export default function LoginPage() {
             console.log("Login Response:", res);
             toast.success("Login Successful 🎉");
             // ------------------ Redirect ------------------
-            const role = res?.user?.role;
+            const role = res?.data?.role;
 
             setTimeout(() => {
-                if (role === "provider") {
-                    navigate("/provider/dashboard");
-                } else {
-                    navigate("/senior/dashboard");
-                }
+                navigate("/senior/dashboard");
+                // if (role === "provider") {
+                //     navigate("/provider/dashboard");
+                // } else {
+                //     navigate("/senior/dashboard");
+                // }
             }, 1000);
 
         } catch (err) {

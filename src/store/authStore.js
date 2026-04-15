@@ -24,8 +24,8 @@ export const useAuthStore = create((set) => ({
             set({ loading: true });
 
             const res = await postRequest(API.AUTH.LOGIN, payload);
-            const { token, user } = res.data;
-            console.log("Login Response:", res.data);
+            const user = res.data.data;
+            const token = res.data.accessToken;
             localStorage.setItem("token", token);
             localStorage.setItem("user", JSON.stringify(user));
             set({

@@ -6,12 +6,11 @@ export const useInvitationStore = create((set) => ({
     invitations: [],
     loading: false,
 
-    // 📌 LIST
-    fetchInvitations: async () => {
+    fetchInvitations: async (params={}) => {
         try {
             set({ loading: true });
 
-            const res = await getRequest(API.INVITATION.LIST);
+            const res = await getRequest(API.INVITATION.LIST,params);
 
             set({
                 invitations: res?.data?.data || [],
@@ -23,7 +22,6 @@ export const useInvitationStore = create((set) => ({
         }
     },
 
-    // 📌 ADD / UPDATE
     addUpdateInvitation: async (payload) => {
         try {
             set({ loading: true });
@@ -39,7 +37,6 @@ export const useInvitationStore = create((set) => ({
         }
     },
 
-    // 📌 DELETE
     deleteInvitation: async (id) => {
         try {
             set({ loading: true });

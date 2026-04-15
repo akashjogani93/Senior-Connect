@@ -1,31 +1,83 @@
-export default function InvitationCard({event}){
+import { useState } from "react";
 
-return(
+export default function InvitationCard({ event }) {
+    const [response, setResponse] = useState("");
 
-<div className="event-card">
+    // ✅ Date format
+    const formatDate = (date) => {
+        if (!date || date === "0000-00-00") return "Date not available";
 
-<div className="card-head">
+        return new Date(date).toLocaleString("en-IN", {
+            day: "numeric",
+            month: "short",
+            year: "numeric",
+            hour: "numeric",
+            minute: "2-digit",
+            hour12: true,
+        });
+    };
 
-<span className="event-tag">{event.tag}</span>
+    const handleResponse = (type) => {
+        setResponse(type);
+        console.log("Response:", type, "Event ID:", event.Invitation_id);
+    };
 
-</div>
+    return (
+        <div className="event-card">
 
-<h3>{event.title}</h3>
+            <div className="card-head">
+                <span className="event-tag">
+                    {event.event_type || event.status || "Event"}
+                </span>
+            </div>
 
-<p className="event-desc">
-{event.desc}
-</p>
+            <h3>{event.title}</h3>
 
-<div className="event-info">
+            <p className="event-desc">
+                {event.description}
+            </p>
 
-<div>{event.date}</div>
-<div>{event.location}</div>
-<div>Host: {event.host}</div>
+            <div className="event-info">
+                <div>{formatDate(event.event_date)}</div>
 
-</div>
+                <div>
+                    {[event.city, event.address].filter(Boolean).join(", ") || "Location not available"}
+                </div>
 
-</div>
+                <div>
+                    Host: {event.user_name || "N/A"}
+                </div>
+            </div>
 
-)
+            <div className="event-actions">
+                <button
+                    className={`event-btn ${response === "Like" ? "active" : ""}`}
+                    onClick={() => handleResponse("Like")}
+                >
+                    👍 Like
+                </button>
 
+                <button
+                    className={`event-btn ${response === "Interested" ? "active" : ""}`}
+                    onClick={() => handleResponse("Interested")}
+                >
+                    ⭐ Interested
+                </button>
+
+                <button
+                    className={`event-btn ${response === "Going" ? "active" : ""}`}
+                    onClick={() => handleResponse("Going")}
+                >
+                    ✅ Going
+                </button>
+            </div>
+
+            {response && (
+                <div className="event-info">
+                    <div>Your Response: {response}</div>
+                </div>
+            )}
+
+        </div>
+    );
 }

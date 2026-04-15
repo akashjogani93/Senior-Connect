@@ -8,8 +8,8 @@ export const API = {
     },
 
     INVITATION: {
-        LIST: "/invitation/list",
-        ADD_UPDATE: "/invitation/add-update",
+        LIST: "/invitation",
+        ADD_UPDATE: "/invitation",
         DELETE: "/invitation/delete"
     },
 

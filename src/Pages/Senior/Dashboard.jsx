@@ -38,7 +38,7 @@ function Dashboard() {
                 </div>
 
                 {/* Appointments Table */}
-                <div className="dashboard-section">
+                {/* <div className="dashboard-section">
                     <div className="section-header">
                         <h4>Upcoming Appointments</h4>
                     </div>
@@ -74,7 +74,7 @@ function Dashboard() {
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </div> */}
 
                 {/* Chat Highlight */}
                 <div className="dashboard-section">

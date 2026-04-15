@@ -1,31 +1,75 @@
+import { useEffect, useState } from "react";
+import { useInvitationStore } from "../../store/invitationStore";
+
 export default function InvitationSearch() {
-  return (
-    <div className="search-box">
+    const { fetchInvitations } = useInvitationStore();
 
-      <div className="search-field">
-        <label>Search keywords</label>
-        <input placeholder="Bingo, Yoga, Potluck..." />
-      </div>
+    const [filters, setFilters] = useState({
+        keyword: "",
+        city: "",
+        category: "",
+    });
 
-      <div className="search-field">
-        <label>Filter by City</label>
-        <input placeholder="Portland, Beaverton..." />
-      </div>
+    const handleChange = (e) => {
+        setFilters({ ...filters, [e.target.name]: e.target.value });
+    };
 
-      <button className="find-btn">
-        Find Events
-      </button>
+    const handleCategory = (cat) => {
+        setFilters({ ...filters, category: cat });
+    };
 
-      <div className="category-row">
+    useEffect(() => {
+        console.log("API Params:", filters);
+        fetchInvitations({
+            ...(filters.keyword && { title: filters.keyword }),
+            ...(filters.city && { city: filters.city }),
+            ...(filters.category && filters.category !== "All" && { event_type: filters.category }),
+        });
+    }, [filters]);
 
-        <span className="cat active">All Types</span>
-        <span className="cat">Social Gatherings</span>
-        <span className="cat">Educational</span>
-        <span className="cat">Health & Wellness</span>
-        <span className="cat">Hobbies</span>
+    return (
+        <div className="search-box">
 
-      </div>
+            <div className="search-field">
+                <label>Search keywords</label>
+                <input
+                    name="keyword"
+                    value={filters.keyword}
+                    onChange={handleChange}
+                    placeholder="Bingo, Yoga, Potluck..."
+                />
+            </div>
 
-    </div>
-  );
+            <div className="search-field">
+                <label>Filter by City</label>
+                <input
+                    name="city"
+                    value={filters.city}
+                    onChange={handleChange}
+                    placeholder="Portland, Beaverton..."
+                />
+            </div>
+
+            <div className="category-row">
+                {[
+                    "All",
+                    "Social Gatherings",
+                    "Educational",
+                    "Health & Wellness",
+                    "Hobbies",
+                    "religious",
+                    "community",
+                    "Other",
+                ].map((cat) => (
+                    <span
+                        key={cat}
+                        className={`cat ${filters.category === cat ? "active" : ""}`}
+                        onClick={() => handleCategory(cat)}
+                    >
+                        {cat}
+                    </span>
+                ))}
+            </div>
+        </div>
+    );
 }

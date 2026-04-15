@@ -19,6 +19,7 @@ import Invitations from './Pages/Public/Invitations';
 // Dashboard
 import Dashboard from './Pages/Senior/Dashboard';
 import InvitationDashboard from './Pages/Senior/invitation';
+import Profile from './Pages/Senior/profile';
 
 
 // ✅ Private Route
@@ -69,6 +70,7 @@ function AppLayout() {
                         <Route index element={<Navigate to="dashboard" />} />
                         <Route path="dashboard" element={<Dashboard />} />
                         <Route path="invitations" element={<InvitationDashboard />} />
+                        <Route path="profile" element={<Profile />} />
                     </Route>
 
                 </Routes>

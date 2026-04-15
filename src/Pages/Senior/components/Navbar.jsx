@@ -1,17 +1,17 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom' // 1. Import Link
+import { Link } from 'react-router-dom'
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
-
-    // Helper to close menu when a link is clicked (good for mobile UX)
+    const user = JSON.parse(localStorage.getItem("user"));
+    console.log("User in Navbar:", user);
     const closeMenu = () => setIsOpen(false)
 
     return (
         <nav className="navbar navbar-expand-lg bg-white fixed-top">
             <div className="container">
                 {/* Use Link instead of <a> */}
-                <Link className="navbar-brand d-flex align-items-center fw-bold fs-3" to="/senior/dashboard" onClick={closeMenu}>
+                <Link className="navbar-brand d-flex align-items-center fw-bold fs-3" to="/" onClick={closeMenu}>
                     Senior<span className="text-primary">Connect</span>
                 </Link>
 
@@ -26,20 +26,31 @@ export default function Navbar() {
                 <div className={`collapse navbar-collapse ${isOpen ? 'show' : ''}`}>
                     <ul className="navbar-nav ms-auto align-items-center">
                         <li className="nav-item">
-                            <Link className="nav-link" to="/" onClick={closeMenu}>Home</Link>
+                            <Link className="nav-link" to="/senior/dashboard" onClick={closeMenu}>Dashboard</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/senior/appointments" onClick={closeMenu}>Appoitments</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/senior/services" onClick={closeMenu}>Services</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/senior/invitations" onClick={closeMenu}>Invitations</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/senior/messages" onClick={closeMenu}>Messages</Link>
-                        </li>
+                        {user && user.role === 'senior' && (
+                            <>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/senior/appointments" onClick={closeMenu}>Appoitments</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/senior/services" onClick={closeMenu}>Services</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/senior/invitations" onClick={closeMenu}>Invitations</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/senior/messages" onClick={closeMenu}>Messages</Link>
+                                </li>
+                            </>
+                        )}
+                        {user && user.role === 'provider' && user.business_type === 'hospital' && (
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/senior/appointments" onClick={closeMenu}>
+                                    Appointments
+                                </Link>
+                            </li>
+                        )}
                         <li className="nav-item">
                             <Link className="nav-link" to="/senior/profile" onClick={closeMenu}>My Profile</Link>
                         </li>
