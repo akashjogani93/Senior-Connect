@@ -1,11 +1,21 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuthStore } from '../../../store/authStore';
 
 export default function Navbar() {
+    const navigate = useNavigate();
+    // Helper to close menu when a link
     const [isOpen, setIsOpen] = useState(false)
     const user = JSON.parse(localStorage.getItem("user"));
+    const { logout } = useAuthStore();
     console.log("User in Navbar:", user);
     const closeMenu = () => setIsOpen(false)
+    const handleLogout = () => {
+        logout(); // your zustand logout
+        localStorage.removeItem("user");
+        closeMenu();
+        navigate("/login");
+    };
 
     return (
         <nav className="navbar navbar-expand-lg bg-white fixed-top">
@@ -25,13 +35,13 @@ export default function Navbar() {
 
                 <div className={`collapse navbar-collapse ${isOpen ? 'show' : ''}`}>
                     <ul className="navbar-nav ms-auto align-items-center">
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <Link className="nav-link" to="/senior/dashboard" onClick={closeMenu}>Dashboard</Link>
-                        </li>
+                        </li> */}
                         {user && user.role === 'senior' && (
                             <>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="/senior/appointments" onClick={closeMenu}>Appoitments</Link>
+                                    <Link className="nav-link" to="/senior/Senior_appointments" onClick={closeMenu}>Appoitments</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/senior/services" onClick={closeMenu}>Services</Link>
@@ -51,11 +61,38 @@ export default function Navbar() {
                                 </Link>
                             </li>
                         )}
+                        {user && user.role === "provider" &&
+                            ["caretaker", "medical_store"].includes(user.business_type) && (
+
+                                <li className="nav-item">
+                                    <Link
+                                        className="nav-link"
+                                        to="/senior/services_providor"
+                                        onClick={closeMenu}
+                                    >
+                                        Services
+                                    </Link>
+                                </li>
+                            )}
+
+                        {user && user.role === "provider" && user.business_type === "volunteer" && (
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/senior/messages" onClick={closeMenu}>
+                                    Messages
+                                </Link>
+                            </li>
+                        )}
+
                         <li className="nav-item">
                             <Link className="nav-link" to="/senior/profile" onClick={closeMenu}>My Profile</Link>
                         </li>
-                        <li className="nav-item ms-lg-4">
-                            <Link className="btn btn-primary-custom" to="/login" onClick={closeMenu}>Logout</Link>
+                        <li className="nav-item ms-lg-3">
+                            <button
+                                className="btn btn-danger"
+                                onClick={handleLogout}
+                            >
+                                Logout
+                            </button>
                         </li>
                     </ul>
                 </div>

@@ -1,10 +1,10 @@
 import { create } from "zustand";
-import { postRequest } from "../api/services";
+import { getRequest, postRequest } from "../api/services";
 import { API } from "../api/endpoints";
 
 export const useAuthStore = create((set) => ({
     loading: false,
-
+    services:[],
     register: async (payload) => {
         try {
             set({ loading: true });
@@ -88,5 +88,22 @@ export const useAuthStore = create((set) => ({
             user: null,
             token: null,
         });
+        
+    },
+
+    fetchServices: async (params = {}) => {
+        try {
+            set({ loading: true });
+
+            const res = await getRequest(API.SERVICE.LIST, params);
+
+            set({
+                services: res?.data?.data || [],
+                loading: false,
+            });
+        } catch (error) {
+            set({ loading: false });
+            throw error;
+        }
     },
 }));

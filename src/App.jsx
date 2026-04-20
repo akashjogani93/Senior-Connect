@@ -20,7 +20,11 @@ import Invitations from './Pages/Public/Invitations';
 import Dashboard from './Pages/Senior/Dashboard';
 import InvitationDashboard from './Pages/Senior/invitation';
 import Profile from './Pages/Senior/profile';
-
+import Appointments from './Pages/Senior/appointments';
+import AppointmentsSeniorDashboard from './Pages/Senior/appointmentsSenior';
+import ServiceRequestsSeniorDashboard from './Pages/Senior/servicesSenior';
+import ServiceRequestsProviderDashboard from './Pages/Senior/serviceProvidor';
+import ChatPage from './Pages/Senior/ChatPage';
 
 // ✅ Private Route
 function PrivateRoute({ children }) {
@@ -71,6 +75,12 @@ function AppLayout() {
                         <Route path="dashboard" element={<Dashboard />} />
                         <Route path="invitations" element={<InvitationDashboard />} />
                         <Route path="profile" element={<Profile />} />
+                        <Route path="appointments" element={<Appointments />} />
+                        <Route path="Senior_appointments" element={<AppointmentsSeniorDashboard />} />
+                        <Route path="services" element={<ServiceRequestsSeniorDashboard />} />
+                        <Route path="services_providor" element={<ServiceRequestsProviderDashboard />} />
+                        <Route path="messages" element={<ChatPage />} />
+                        <Route path="messages/:userId" element={<ChatPage />} />
                     </Route>
 
                 </Routes>

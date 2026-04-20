@@ -19,7 +19,7 @@ export default function InvitationSearch() {
     };
 
     useEffect(() => {
-        console.log("API Params:", filters);
+        // console.log("API Params:", filters);
         fetchInvitations({
             ...(filters.keyword && { title: filters.keyword }),
             ...(filters.city && { city: filters.city }),

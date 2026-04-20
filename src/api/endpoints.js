@@ -13,7 +13,27 @@ export const API = {
         DELETE: "/invitation/delete"
     },
 
-    SERVICE: {
-        LIST: "/service/list",
+    APPOINTMENTS:{
+        CREATE_UPDATE:"/appointment",
+        UPDATE_STATUS:"/appointmentUpdateStatus",
+        BOOK_APPOINTMENT:"/bookAppointment",
+        LIST:"/appointment",
     },
+
+    SERVICE: {
+        LIST: "/service",
+    },
+
+    SERVICE_REQUEST: {
+        CREATE_UPDATE: "/serviceRequest",
+        LIST: "/serviceList",
+        UPDATE_STATUS: "/serviceUpdateStatus",
+    },
+
+    CHAT: {
+        LIST: "/Chatlist",
+        MESSAGES: "/chatMessages",
+        SEND: "/chatSend",
+    }
+
 };

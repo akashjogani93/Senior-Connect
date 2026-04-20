@@ -1,0 +1,233 @@
+.dashboard-page {
+  background: #f4f7fb;
+  min-height: 100vh;
+}
+.main-page
+{
+  padding-top: 80px;
+}
+.appointment-container {
+  padding-top: 150px;
+  padding-bottom: 30px;
+}
+
+/* Card */
+.appointment-form {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Heading */
+.appointment-form h4 {
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+/* Form Layout */
+.form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Row (Date + Time) */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* FIXED: 2 columns */
+  gap: 12px;
+}
+
+/* Inputs */
+.form-row input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* Button */
+.form-grid button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  width: fit-content;
+}
+
+.form-grid button:hover {
+  background: #0056b3;
+}
+
+/* Disabled button */
+.form-grid button:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+
+.appointment-table {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.appointment-table h4 {
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+/* Table */
+.appointment-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.appointment-table th {
+  text-align: left;
+  padding: 12px;
+  font-size: 14px;
+  color: #555;
+  background: #f8f9fa;
+}
+
+.appointment-table td {
+  padding: 12px;
+  font-size: 14px;
+  border-top: 1px solid #eee;
+}
+
+/* Row hover */
+.appointment-table tr:hover {
+  background: #f9fbff;
+}
+
+/* Buttons */
+.btn-edit {
+  background: #ffc107;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  margin-right: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.btn-edit:hover {
+  background: #e0a800;
+}
+
+.btn-delete {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.btn-delete:hover {
+  background: #b02a37;
+}
+
+/* Empty state */
+.appointment-table td[colspan="5"] {
+  padding: 20px;
+  color: #777;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .appointment-form form {
+    flex-direction: column;
+  }
+
+  .appointment-form input,
+  .appointment-form select {
+    width: 100%;
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.modal-box {
+  background: white;
+  padding: 20px;
+  width: 400px;
+  margin: 100px auto;
+  border-radius: 10px;
+}
+
+.slot {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.slot.active {
+  background: #007bff;
+  color: white;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #555;
+}
+
+.modal-close:hover {
+  color: red;
+}
+
+
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.status-badge.pending {
+  background: orange;
+}
+
+.status-badge.accepted {
+  background: green;
+}
+
+.status-badge.rejected {
+  background: red;
+}
+
+.status-badge.completed {
+  background: blue;
+}
+
+.status-badge.cancelled {
+  background: gray;
+}

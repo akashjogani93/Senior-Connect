@@ -64,7 +64,7 @@ export default function LoginPage() {
             const role = res?.data?.role;
 
             setTimeout(() => {
-                navigate("/senior/dashboard");
+                navigate("/senior/profile");
                 // if (role === "provider") {
                 //     navigate("/provider/dashboard");
                 // } else {

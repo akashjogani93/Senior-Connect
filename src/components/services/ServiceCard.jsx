@@ -1,32 +1,114 @@
-export default function ServiceCard({service}) {
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import AppointmentModal from "../Modal/AppointmentModal";
+import toast from "react-hot-toast";
+import ServiceRequestModal from "../Modal/ServiceRequestModal";
 
-  return (
-    <div className="service-card">
+export default function ServiceCard({ service }) {
 
-      <div className="card-top">
+    const [open, setOpen] = useState(false);
+    const [requestOpen, setRequestOpen] = useState(false);
+    const navigate = useNavigate();
 
-        <span className="category">{service.type}</span>
+    const user = JSON.parse(localStorage.getItem("user")) || null;
 
-        <span className="status">
-          {service.status}
-        </span>
+    const handleBookClick = () => {
+        // ❌ Not logged in
+        if (!user) {
+            navigate("/login");
+            return;
+        }
 
-      </div>
+        // ❌ Not senior
+        if (user.role !== "senior") {
+            toast.error("Only senior users can book appointments");
+            return;
+        }
 
-      <h2>{service.name}</h2>
+        // ✅ Allowed
+        setOpen(true);
+    };
 
-      <p className="address">{service.address}</p>
+    const handleRequestClick = () => {
+        if (!user) {
+            navigate("/login");
+            return;
+        }
 
-      <p className="phone">{service.phone}</p>
+        if (user.role !== "senior") {
+            toast.error("Only senior users can send requests");
+            return;
+        }
 
-      <div className="card-buttons">
+        setRequestOpen(true);
+    };
 
-        <button className="btn blue">Book</button>
-        <button className="btn green">Request</button>
-        <button className="btn orange">Chat</button>
+    const handleChatClick = () => {
+        if (!user) {
+            navigate("/login");
+            return;
+        }
+        if (user.role !== "senior") {
+            toast.error("Only senior users can send requests");
+            return;
+        }
 
-      </div>
+        navigate(`/senior/messages/${service.user_id}`);
+    };
 
-    </div>
-  );
+    return (
+        <>
+            <div className="service-card">
+
+                <div className="card-top">
+                    <span className="category">{service.business_type}</span>
+                    <span className="status">{service.city}</span>
+                </div>
+
+                <h2>{service.name}</h2>
+                <p className="address">{service.address}</p>
+                <p className="phone">{service.phone}</p>
+
+                <div className="card-buttons">
+
+                    {/* 🏥 Hospital → Book */}
+                    {service.business_type === "hospital" && (
+                        <button className="btn blue" onClick={handleBookClick}>
+                            Book
+                        </button>
+                    )}
+
+                    {/* 🧑 Caretaker & 🏥 Medical Store → Request */}
+                    {(service.business_type === "caretaker" || service.business_type === "medical_store") && (
+                        <button className="btn green" onClick={handleRequestClick}>
+                            Request
+                        </button>
+                    )}
+
+                    {/* 💬 Volunteer → Chat */}
+                    {service.business_type === "volunteer" && (
+                        <button className="btn orange" onClick={handleChatClick}>
+                            Chat
+                        </button>
+                    )}
+                </div>
+
+            </div>
+
+            {open && (
+                <AppointmentModal
+                    provider_id={service.user_id}
+                    onClose={() => setOpen(false)}
+                />
+            )}
+
+            {requestOpen && (
+                <ServiceRequestModal
+                    provider_id={service.user_id}
+                    service_type={service.business_type}
+                    onClose={() => setRequestOpen(false)}
+                />
+            )}
+        </>
+    );
 }
