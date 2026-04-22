@@ -1,8 +1,19 @@
+import { useNavigate } from 'react-router-dom';
 import '../../assets/css/home.css'
 import bannerImage from '../../assets/uploads/banner.png'
 import care from '../../assets/uploads/care.png'
+import { useState } from 'react';
 
 export default function HeroSection() {
+    const [city, setCity] = useState("");
+    const navigate = useNavigate();
+
+    const handleSearch = () => {
+        navigate("/services", {
+            state: { city: city }
+        });
+    };
+
     return (
         <>
             <section className="banner-section pt-5">
@@ -52,12 +63,14 @@ export default function HeroSection() {
                                         <input
                                             type="text"
                                             className="form-control border-start-0"
-                                            placeholder="Enter city or zip code"
+                                            placeholder="Enter city"
+                                            value={city}
+                                            onChange={(e) => setCity(e.target.value)}
                                         />
                                     </div>
                                 </div>
                                 <div className="col-md-4">
-                                    <button className="btn btn-primary-custom w-100 h-100 fs-5">Search</button>
+                                    <button className="btn btn-primary-custom w-100 h-100 fs-5" onClick={handleSearch}>Search</button>
                                 </div>
                             </div>
                         </div>

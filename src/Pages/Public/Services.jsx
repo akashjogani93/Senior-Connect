@@ -1,8 +1,15 @@
 import ServiceSearch from "../../components/services/ServiceSearch";
 import ServiceList from "../../components/services/ServiceList";
 import "../../assets/css/services.css";
+import { useLocation } from "react-router-dom";
 
 export default function Services() {
+    const location = useLocation();
+    const cityFromHome = location.state?.city || "";
+    const categoryFromHome = location.state?.category || "";
+
+    console.log(cityFromHome);
+    console.log(categoryFromHome);
     return (
         <div className="services-page">
 
@@ -18,7 +25,7 @@ export default function Services() {
             </div>
 
             <div className="container">
-                <ServiceSearch />
+                <ServiceSearch defaultCity={cityFromHome} defaultCategory={categoryFromHome}/>
                 <ServiceList />
             </div>
 

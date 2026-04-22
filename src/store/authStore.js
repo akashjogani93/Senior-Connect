@@ -96,7 +96,7 @@ export const useAuthStore = create((set) => ({
             set({ loading: true });
 
             const res = await getRequest(API.SERVICE.LIST, params);
-
+            console.log(res);
             set({
                 services: res?.data?.data || [],
                 loading: false,

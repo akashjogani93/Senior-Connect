@@ -17,7 +17,7 @@ export default function ServiceList() {
             role: role,
         });
     }, []);
-
+    // console.log(services);
     return (
         <div>
 

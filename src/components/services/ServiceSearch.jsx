@@ -3,18 +3,25 @@ import { useAuthStore } from "../../store/authStore";
 import { use } from "react";
 import { useEffect } from "react";
 
-export default function ServiceSearch() {
-
+export default function ServiceSearch({ defaultCity, defaultCategory }) {
     const { fetchServices } = useAuthStore();
-
+    console.log(defaultCategory);
     const [filters, setFilters] = useState({
-        city: "",
-        category: "All",
+        city: defaultCity || "",
+        category: defaultCategory || "All",
     });
 
     const handleChange = (e) => {
         setFilters({ ...filters, [e.target.name]: e.target.value });
     };
+
+    useEffect(() => {
+        setFilters((prev) => ({
+            ...prev,
+            city: defaultCity || prev.city,
+            category: defaultCategory ? defaultCategory : prev.category,
+        }));
+    }, [defaultCity, defaultCategory]);
 
     useEffect(() => {
         fetchServices({

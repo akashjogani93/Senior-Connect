@@ -51,7 +51,7 @@ function InvitationDashboard() {
             const formData = createFormData(payload);
             await addUpdateInvitation(formData);
 
-            fetchInvitations();
+            fetchInvitations({ user_id: user?.user_id });
             toast.success(`Invitation ${editId ? "updated" : "added"} successfully 🎉`);
             setForm({
                 title: "",
@@ -86,7 +86,7 @@ function InvitationDashboard() {
     const handleDelete = async (id) => {
         try {
             await deleteInvitation(id);
-            fetchInvitations();
+            fetchInvitations({ user_id: user?.user_id });
         } catch (err) {
             console.log(err);
         }

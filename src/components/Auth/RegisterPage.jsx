@@ -10,7 +10,7 @@ import { createFormData } from "../../utils/formData";
 export default function RegisterPage() {
     const navigate = useNavigate();
     const { register, loading } = useAuthStore();
-
+    const [errors, setErrors] = useState({});
     const [role, setRole] = useState("senior");
     const [category, setCategory] = useState("");
 
@@ -31,12 +31,26 @@ export default function RegisterPage() {
     ];
 
     const handleChange = (e) => {
-        setData({ ...data, [e.target.name]: e.target.value });
+        let { name, value } = e.target;
+
+        if (name === "pincode" || name === "phone") {
+            value = value.replace(/\D/g, ""); // only numbers
+        }
+
+        setData({ ...data, [name]: value });
+
+        // clear error on typing
+        setErrors({ ...errors, [name]: "" });
     };
 
     const handleSubmit = async () => {
         try {
             if (loading) return;
+
+            if (!validateForm()) {
+                toast.error("Please fix form errors");
+                return;
+            }
             // ------------------ Validation ------------------
             if (!data.fullname || !data.email || !data.phone || !data.password) {
                 return toast.error("Please fill all required fields");
@@ -72,6 +86,59 @@ export default function RegisterPage() {
         } catch (err) {
             toast.error(err?.response?.data?.message || "Something went wrong ❌");
         }
+    };
+
+    const validateForm = () => {
+        let newErrors = {};
+
+        // Full Name
+        if (!data.fullname.trim()) {
+            newErrors.fullname = "Full name is required";
+        } else if (data.fullname.length < 3) {
+            newErrors.fullname = "Minimum 3 characters required";
+        }
+
+        // Email
+        if (!data.email.trim()) {
+            newErrors.email = "Email is required";
+        } else if (!/^\S+@\S+\.\S+$/.test(data.email)) {
+            newErrors.email = "Invalid email format";
+        }
+
+        // Phone
+        if (!data.phone) {
+            newErrors.phone = "Phone is required";
+        } else if (!/^[0-9]{10}$/.test(data.phone)) {
+            newErrors.phone = "Phone must be 10 digits";
+        }
+
+        // Password
+        if (!data.password) {
+            newErrors.password = "Password is required";
+        } else if (data.password.length < 6) {
+            newErrors.password = "Minimum 6 characters required";
+        }
+
+        // City
+        if (!data.city.trim()) {
+            newErrors.city = "City is required";
+        }
+
+        // Pincode
+        if (!data.pincode) {
+            newErrors.pincode = "Pincode is required";
+        } else if (!/^[0-9]{6}$/.test(data.pincode)) {
+            newErrors.pincode = "Pincode must be 6 digits";
+        }
+
+        // Category
+        if (role === "provider" && !category) {
+            newErrors.category = "Please select category";
+        }
+
+        setErrors(newErrors);
+
+        return Object.keys(newErrors).length === 0;
     };
 
     return (
@@ -130,6 +197,7 @@ export default function RegisterPage() {
                     value={data.fullname}
                     onChange={handleChange}
                     name="fullname"
+                    error={errors.fullname}
                 />
 
                 <AuthInput
@@ -138,6 +206,7 @@ export default function RegisterPage() {
                     value={data.email}
                     onChange={handleChange}
                     name="email"
+                    error={errors.fullname}
                 />
 
                 <AuthInput
@@ -146,6 +215,7 @@ export default function RegisterPage() {
                     value={data.phone}
                     onChange={handleChange}
                     name="phone"
+                     error={errors.fullname}
                 />
 
                 <AuthInput
@@ -154,6 +224,7 @@ export default function RegisterPage() {
                     value={data.password}
                     onChange={handleChange}
                     name="password"
+                     error={errors.fullname}
                 />
 
                 <AuthInput
@@ -162,6 +233,7 @@ export default function RegisterPage() {
                     value={data.city}
                     onChange={handleChange}
                     name="city"
+                     error={errors.fullname}
                 />
 
                 <AuthInput
@@ -170,6 +242,7 @@ export default function RegisterPage() {
                     value={data.pincode}
                     onChange={handleChange}
                     name="pincode"
+                     error={errors.fullname}
                 />
 
                 {/* Submit Button */}
