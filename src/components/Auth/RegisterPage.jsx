@@ -37,6 +37,10 @@ export default function RegisterPage() {
             value = value.replace(/\D/g, ""); // only numbers
         }
 
+        if (name === "fullname") {
+            value = value.replace(/[^a-zA-Z\s]/g, "");
+        }
+
         setData({ ...data, [name]: value });
 
         // clear error on typing
@@ -206,7 +210,7 @@ export default function RegisterPage() {
                     value={data.email}
                     onChange={handleChange}
                     name="email"
-                    error={errors.fullname}
+                    error={errors.email}
                 />
 
                 <AuthInput
@@ -215,7 +219,7 @@ export default function RegisterPage() {
                     value={data.phone}
                     onChange={handleChange}
                     name="phone"
-                     error={errors.fullname}
+                    error={errors.phone}
                 />
 
                 <AuthInput
@@ -224,7 +228,7 @@ export default function RegisterPage() {
                     value={data.password}
                     onChange={handleChange}
                     name="password"
-                     error={errors.fullname}
+                    error={errors.password}
                 />
 
                 <AuthInput
@@ -233,7 +237,7 @@ export default function RegisterPage() {
                     value={data.city}
                     onChange={handleChange}
                     name="city"
-                     error={errors.fullname}
+                    error={errors.city}
                 />
 
                 <AuthInput
@@ -242,7 +246,7 @@ export default function RegisterPage() {
                     value={data.pincode}
                     onChange={handleChange}
                     name="pincode"
-                     error={errors.fullname}
+                    error={errors.pincode}
                 />
 
                 {/* Submit Button */}
