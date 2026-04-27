@@ -8,6 +8,7 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
     const user = JSON.parse(localStorage.getItem("user"));
     const { logout } = useAuthStore();
+    const userName = user?.name || "";
     console.log("User in Navbar:", user);
     const closeMenu = () => setIsOpen(false)
     const handleLogout = () => {
@@ -86,9 +87,13 @@ export default function Navbar() {
                         <li className="nav-item">
                             <Link className="nav-link" to="/senior/profile" onClick={closeMenu}>My Profile</Link>
                         </li>
-                        <li className="nav-item ms-lg-3">
+                        <li className="nav-item ms-lg-3 d-flex align-items-center gap-2">
+                            <span className="fw-semibold text-primary">
+                                👋 {userName}
+                            </span>
+
                             <button
-                                className="btn btn-danger"
+                                className="btn btn-danger btn-sm"
                                 onClick={handleLogout}
                             >
                                 Logout

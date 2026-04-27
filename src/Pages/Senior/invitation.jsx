@@ -233,9 +233,9 @@ function InvitationDashboard() {
                                         <td>{inv.city || "-"}</td>
                                         <td>{inv.address || "-"}</td>
                                         <td>
-                                            <span className={`status-badge ${inv.status?.toLowerCase()}`}>
+                                            {/* <span className={`status-badge ${inv.status?.toLowerCase()}`}> */}
                                                 {inv.status || "Upcoming"}
-                                            </span>
+                                            {/* </span> */}
                                         </td>
                                         <td>
                                             <button

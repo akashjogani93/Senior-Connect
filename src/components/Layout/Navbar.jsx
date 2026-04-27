@@ -8,6 +8,7 @@ export default function Navbar() {
     // Helper to close menu when a link is clicked (good for mobile UX)
     const closeMenu = () => setIsOpen(false)
     const user = JSON.parse(localStorage.getItem("user"));
+    const userName = user?.name || "";
     const { logout } = useAuthStore();
     const handleLogout = () => {
         logout(); // your zustand logout
@@ -73,11 +74,9 @@ export default function Navbar() {
                                 </li>
 
                                 {/* 🚪 Logout */}
-                                <li className="nav-item ms-lg-3">
-                                    <button
-                                        className="btn btn-danger"
-                                        onClick={handleLogout}
-                                    >
+                                <li className="nav-item ms-lg-3 d-flex align-items-center gap-2">
+                                    <span className="fw-semibold text-primary">{userName}</span>
+                                    <button className="btn btn-sm btn-danger" onClick={handleLogout}>
                                         Logout
                                     </button>
                                 </li>
