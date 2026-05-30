@@ -33,7 +33,7 @@ export default function HeroSection() {
                         <p className="lead">
                             Supporting families with reliable healthcare and assistance solutions.
                         </p>
-                        <button className="btn btn-primary-custom mt-3 px-4">
+                        <button className="btn btn-primary-custom mt-3 px-4" onClick={() => navigate("/services")}>
                             Explore Services
                         </button>
                     </div>

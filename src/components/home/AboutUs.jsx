@@ -1,7 +1,10 @@
 import '../../assets/css/home.css';
+import { useNavigate } from 'react-router-dom';
 import aboutImage from '../../assets/uploads/howitwork.png';// change filename
 
 export default function AboutUs() {
+  const navigate = useNavigate();
+  
   return (
     <section className="about-section py-5">
       <div className="container">
@@ -30,7 +33,7 @@ export default function AboutUs() {
                 We focus on reliability, transparency, and user trust.
               </p>
 
-              <button className="btn btn-primary px-4 py-2 mt-3">
+              <button className="btn btn-primary px-4 py-2 mt-3" onClick={() => navigate("/about")}>
                 Learn More
               </button>
             </div>

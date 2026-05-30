@@ -231,3 +231,23 @@
 .status-badge.cancelled {
   background: gray;
 }
+
+
+.slots {
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.slots::-webkit-scrollbar {
+    width: 6px;
+}
+
+.slots::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+.slots::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
