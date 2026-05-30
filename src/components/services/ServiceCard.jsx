@@ -68,6 +68,7 @@ export default function ServiceCard({ service }) {
                 <h2>{service.name}</h2>
                 <p className="address">{service.address}</p>
                 <p className="phone">{service.phone}</p>
+                <p className="address">{service.description}</p>
 
                 <div className="card-buttons">
 
