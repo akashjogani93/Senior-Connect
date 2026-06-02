@@ -220,7 +220,9 @@ function InvitationDashboard() {
                                         <td>{inv.event_type}</td>
                                         <td>
                                             {inv.event_date
-                                                ? new Date(inv.event_date).toLocaleString("en-IN", {
+                                                ? new Date(
+                                                    new Date(inv.event_date).getTime() + (5.5 * 60 * 60 * 1000)
+                                                ).toLocaleString("en-IN", {
                                                     day: "2-digit",
                                                     month: "short",
                                                     year: "numeric",
@@ -234,7 +236,7 @@ function InvitationDashboard() {
                                         <td>{inv.address || "-"}</td>
                                         <td>
                                             {/* <span className={`status-badge ${inv.status?.toLowerCase()}`}> */}
-                                                {inv.status || "Upcoming"}
+                                            {inv.status || "Upcoming"}
                                             {/* </span> */}
                                         </td>
                                         <td>
