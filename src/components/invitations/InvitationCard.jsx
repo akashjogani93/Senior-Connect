@@ -15,6 +15,7 @@ export default function InvitationCard({ event }) {
             minute: "2-digit",
             hour12: true,
         });
+
     };
 
     const handleResponse = (type) => {
@@ -38,7 +39,18 @@ export default function InvitationCard({ event }) {
             </p>
 
             <div className="event-info">
-                <div>{formatDate(event.event_date)}</div>
+                <div> {event.event_date
+                    ? new Date(
+                        new Date(event.event_date).getTime() + (5.5 * 60 * 60 * 1000)
+                    ).toLocaleString("en-IN", {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        hour12: true,
+                    })
+                    : "-"}</div>
 
                 <div>
                     {[event.city, event.address].filter(Boolean).join(", ") || "Location not available"}
